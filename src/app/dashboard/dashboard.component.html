@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+</head>
+<body>
+    
+<h1><span class="blue"> </span>Employee<span class="blue"> </span> <span class="yellow">Details</span></h1>   
+
+<table class="container">
+  <thead>
+    <tr>
+      <th><h1>User ID</h1></th>
+      <th><h1>First Name</h1></th>
+      <th><h1>Last Name</h1></th>
+      <th><h1>Email</h1></th>
+      <th><h1>Phone</h1></th>
+      <th><h1>Address</h1></th>
+      <th><h1>Pincode</h1></th>
+      <th><h1>Role</h1></th>
+      <th><h1>Actions</h1></th>
+
+    </tr>
+  </thead>
+  <tbody *ngFor="let detail of empDetails">
+    <tr>
+      <td>{{detail.userId}}</td>
+      <td>{{detail.fName}}</td>
+      <td>{{detail.lName}}</td>
+      <td>{{detail.email}}.com</td>
+      <td>{{detail.phNo}}</td>
+      <td>{{detail.address}}</td>
+      <td>{{detail.pincode}}</td>
+      <td>{{roles[detail.roleId]}}</td>
+      <td>
+        <div class="action-button-container">
+            <button class="btn btn-primary" (click)="onUpdate(detail)"> 
+            <!-- <img src="../../assets/update.png" alt="">  -->Update
+            </button>
+            <button class="btn btn-danger" (click)="onDelete(detail.userId, detail.email)">
+              <!-- <img src="../../assets/del.png" alt="">  -->Delete
+            </button>
+        </div>
+    </td>     
+    </tr>
+  </tbody>
+</table>
+<hr>
+<div *ngIf="updateFlag">
+  <app-update-details></app-update-details>
+  <button class="btn btn-primary" (click)="updateDone()">Done</button>
+</div>
+<button class="btn btn-danger" (click)="onLogout()">Logout</button> 
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="./signup.component.scss">
+</head>
+
+<body>
+    <div class="container">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <h2>Register Now</h2>
+            <div class="content">
+                <div class="input-box">
+                    <label for="fName">First Name</label>
+                    <input type="text" placeholder="Enter your First Name" name="fName" formControlName="fName">
+                    <span class="invalidAlert" *ngIf="
+                registerForm.get('fName')?.hasError('required') &&
+                (registerForm.get('fName')?.dirty ||
+                registerForm.get('fName')?.touched ||
+                isSubmitted)">
+                        Required</span>
+                </div>
+
+                <div class="input-box">
+                    <label for="lName">Last Name</label>
+                    <input type="text" placeholder="Enter your Last Name" name="lName" formControlName="lName">
+                    <span class="invalidAlert" *ngIf="
+                registerForm.get('lName')?.hasError('required') &&
+                (registerForm.get('lName')?.dirty ||
+                registerForm.get('lName')?.touched ||
+                isSubmitted)">
+                        Required</span>
+                </div>
+
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter your E-mail" name="email" formControlName="email">
+                    <span class="invalidAlert" *ngIf="
+                registerForm.get('email')?.hasError('required') &&
+                (registerForm.get('email')?.dirty ||
+                registerForm.get('email')?.touched ||
+                isSubmitted)">
+                        Required</span>
+                </div>
+
+                <div class="input-box">
+                    <label for="phNo">Phone Number</label>
+                    <input type="tel" placeholder="Enter your phone number" name="phNo" formControlName="phNo">
+                    <span class="invalidAlert" *ngIf="
+                registerForm.get('phNo')?.hasError('required') &&
+                (registerForm.get('phNo')?.dirty ||
+                registerForm.get('phNo')?.touched ||
+                isSubmitted)">
+                        Required</span>
+                </div>
+
+                <div class="input-box">
+                    <label for="address">Address</label>
+                    <input type="text" placeholder="Enter your Address" name="address" formControlName="address">
+                    <span class="invalidAlert" *ngIf="
+                registerForm.get('address')?.hasError('required') &&
+                (registerForm.get('address')?.dirty ||
+                registerForm.get('address')?.touched ||
+                isSubmitted)">
+                        Required</span>
+                </div>
+
+                <div class="input-box">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" placeholder="Enter your pincode" name="pincode" formControlName="pincode"
+                    />
+                    <span class="invalidAlert" *ngIf="
+                registerForm.get('pincode')?.hasError('required') &&
+                (registerForm.get('pincode')?.dirty ||
+                registerForm.get('pincode')?.touched ||
+                isSubmitted)">
+                        Required</span>
+                </div>
+
+                <div class="input-box">
+                    <label for="password">Set Password</label>
+                    <input type="text" placeholder="Set your new password" name="password" 
+                    formControlName="password"/>
+                    <span class="invalidAlert" *ngIf="
+                registerForm.get('password')?.hasError('required') &&
+                (registerForm.get('password')?.dirty ||
+                registerForm.get('password')?.touched ||
+                isSubmitted)">
+                        Required</span>
+                </div>
+
+                <span class="role-title">Role</span>
+                <!-- <div class="role-category">
+                <input type="radio" name="role" id="admin" formControlName="roleId">
+                <label for="role">Admin</label>
+                <input type="radio" name="role" id="manager" formControlName="roleId">
+                <label for="role">Manager</label>
+                <input type="radio" name="role" id="developer" formControlName="roleId">
+                <label for="role">Developer</label>
+            </div> -->
+                <select formControlName="roleId">
+                    <option *ngFor="let role of roles" [ngValue]="role.id">{{role.title}}</option>
+                </select>
+            </div>
+            <div class="alert">
+                <p>By clicking Register, you agree to our <a href="#">Terms</a>, <a href="#">Privacy Policy</a> and <a
+                        href="#">Cookies Policy</a>. You may receive email notifications from us and can opt out at any
+                    time.</p>
+            </div>
+            <div class="button-container">
+                <button type="submit">Register</button>
+            </div>
+            <div class="login-link">
+                <a routerLink="">Login</a>
+            </div>
+        </form>
+
+    </div>
+</body>
+
+</html>

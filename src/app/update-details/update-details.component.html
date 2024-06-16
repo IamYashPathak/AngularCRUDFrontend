@@ -1,0 +1,99 @@
+<h2>Update Details</h2>
+            <div class="content">
+                <div class="input-box">
+                    <label for="fName">First Name</label>
+                    <input type="text" 
+                    placeholder="Enter your First Name" 
+                    name="fName" 
+                    [(ngModel)]="empDetails.fName"
+                    />
+                    <!-- <span class="invalidAlert" *ngIf="
+                registerForm.get('fName')?.hasError('required') &&
+                (registerForm.get('fName')?.dirty ||
+                registerForm.get('fName')?.touched ||
+                isSubmitted)">
+                        Required</span>-->
+                </div> 
+
+                <div class="input-box">
+                    <label for="lName">Last Name</label>
+                    <input type="text" placeholder="Enter your Last Name" 
+                    name="lName" 
+                    [(ngModel)]="empDetails.lName"/>
+                    <!-- <span class="invalidAlert" *ngIf="
+                registerForm.get('lName')?.hasError('required') &&
+                (registerForm.get('lName')?.dirty ||
+                registerForm.get('lName')?.touched ||
+                isSubmitted)">
+                        Required</span> -->
+                </div>
+
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter your E-mail" 
+                    name="email" 
+                    [(ngModel)]="empDetails.email" />
+                    <!-- <span class="invalidAlert" *ngIf="
+                registerForm.get('email')?.hasError('required') &&
+                (registerForm.get('email')?.dirty ||
+                registerForm.get('email')?.touched ||
+                isSubmitted)">
+                        Required</span> -->
+                </div>
+
+                <div class="input-box">
+                    <label for="phNo">Phone Number</label>
+                    <input type="tel" placeholder="Enter your phone number" 
+                    name="phNo" 
+                    [(ngModel)]="empDetails.phNo"/>
+                    <!-- <span class="invalidAlert" *ngIf="
+                registerForm.get('phNo')?.hasError('required') &&
+                (registerForm.get('phNo')?.dirty ||
+                registerForm.get('phNo')?.touched ||
+                isSubmitted)">
+                        Required</span> -->
+                </div>
+
+                <div class="input-box">
+                    <label for="address">Address</label>
+                    <input type="text" placeholder="Enter your Address"
+                     name="address" 
+                     [(ngModel)]="empDetails.address"/>
+                    <!-- <span class="invalidAlert" *ngIf="
+                registerForm.get('address')?.hasError('required') &&
+                (registerForm.get('address')?.dirty ||
+                registerForm.get('address')?.touched ||
+                isSubmitted)">
+                Required</span> -->
+                </div>
+
+                <div class="input-box">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" placeholder="Enter your pincode" 
+                    name="pincode" 
+                    [(ngModel)]="empDetails.pincode">
+                    <!-- <span class="invalidAlert" *ngIf="
+                registerForm.get('pincode')?.hasError('required') &&
+                (registerForm.get('pincode')?.dirty ||
+                registerForm.get('pincode')?.touched ||
+                isSubmitted)">
+                        Required</span> -->
+                </div>
+
+                <span class="role-title">Role</span>
+                <!-- <div class="role-category">
+                <input type="radio" name="role" id="admin" formControlName="roleId">
+                <label for="role">Admin</label>
+                <input type="radio" name="role" id="manager" formControlName="roleId">
+                <label for="role">Manager</label>
+                <input type="radio" name="role" id="developer" formControlName="roleId">
+                <label for="role">Developer</label>
+            </div> -->
+                <select>
+                    <option *ngFor="let role of roles" [ngValue]="role.id">{{role.title}}</option>
+                </select>
+                <button class="btn btn-secondary" (click)="fillPreviousData()">Previous Data</button>
+                <button class="btn btn-warning" (click)="onUpdate()">Update</button>
+                <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+            </div>
+       
