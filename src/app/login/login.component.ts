@@ -24,7 +24,7 @@ export class LoginComponent {
   });
 
   onSubmit(){
-    console.log('Creds',this.loginForm.value);  
+    // console.log('Creds',this.loginForm.value);  
     this.http.post('https://localhost:7072/api/Login/login',this.loginForm.value)
     .subscribe((response : any)=>{
       console.log(response);

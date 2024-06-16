@@ -39,7 +39,7 @@
             <button class="btn btn-primary" (click)="onUpdate(detail)"> 
             <!-- <img src="../../assets/update.png" alt="">  -->Update
             </button>
-            <button class="btn btn-danger" (click)="onDelete(detail.userId, detail.email)">
+            <button *ngIf="role==1" class="btn btn-danger" (click)="onDelete(detail.userId, detail.email)">
               <!-- <img src="../../assets/del.png" alt="">  -->Delete
             </button>
         </div>
